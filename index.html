@@ -3,80 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PYQ Hub</title>
+    <title>PYQ Hub - Academic Resource Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: #f4f4f4;
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+            color: #2d3436;
+            line-height: 1.6;
+        }
+
         nav {
-            background: #ff9501;
-            padding: 15px;
-            text-align: center;
+            background: #ffffff;
+            padding: 1rem 5%;
             position: fixed;
             top: 0;
             width: 100%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            margin: 0 15px;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #ffcc00;
-        }
-        .container {
-            text-align: center;
-            margin-top: 100px;
-        }
-        h1 {
-            font-size: 32px;
-            color: #333;
-        }
-        .button-container {
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            margin-top: 20px;
+            z-index: 1000;
         }
-        .btn {
-            width: 220px;
-            padding: 12px;
-            font-size: 18px;
-            font-weight: bold;
-            border: none;
-            border-radius: 5px;
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2d3436;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #0984e3;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #2d3436;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #0984e3;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #0984e3;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 120px auto 40px;
+            padding: 0 20px;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2d3436;
+            font-weight: 600;
+        }
+
+        .hero-section p {
+            color: #636e72;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .subject-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            margin: 10px 0;
-            transition: background 0.3s, transform 0.2s;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
+
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .subject-card h2 {
+            margin: 1rem 0;
+            font-weight: 600;
+            color: #2d3436;
+        }
+
+        .subject-card p {
+            color: #636e72;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .accountancy { background: #0984e3; color: white; }
+        .economics { background: #00b894; color: white; }
+        .business { background: #6c5ce7; color: white; }
+
         .btn:hover {
-            transform: scale(1.05);
+            opacity: 0.9;
+            transform: translateY(-2px);
         }
-        .accountancy { background-color: #007bff; color: white; }
-        .economics { background-color: #28a745; color: white; }
-        .business { background-color: #dc3545; color: white; }
+
+        footer {
+            background: #2d3436;
+            color: white;
+            padding: 2rem 5%;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
     <nav>
-        <a href="#">Home</a>
-        <a href="#">Subjects</a>
-        <a href="#">Contact</a>
+        <a href="#" class="logo">PYQ<span>Hub</span></a>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Subjects</a>
+            <a href="#">Contact</a>
+        </div>
     </nav>
+
     <div class="container">
-        <h1>PYQ Hub - Previous Year Questions</h1>
-        <div class="button-container">
-            <button class="btn accountancy" onclick="window.location.href='accountancy.html'">Accountancy</button>
-            <button class="btn economics" onclick="window.location.href='economics.html'">Economics</button>
-            <button class="btn business" onclick="window.location.href='business.html'">Business Studies</button>
+        <div class="hero-section">
+            <h1>Master Your Exams with PYQ Hub</h1>
+            <p>Access curated previous year question papers, organized by subject and year. Enhance your preparation with our comprehensive academic resources.</p>
+        </div>
+
+        <div class="grid-container">
+            <div class="subject-card" onclick="window.location.href='accountancy.html'">
+                <h2>Accountancy</h2>
+                <p>2018,2019,2020,2022,2023 & 2024 PYQs</p>
+                <a href="#" class="btn accountancy">Explore PYQs</a>
+            </div>
+
+            <div class="subject-card" onclick="window.location.href='economics.html'">
+                <h2>Economics</h2>
+                <p>Coming Soon</p>
+                <a href="#" class="btn economics">Explore PYQs</a>
+            </div>
+
+            <div class="subject-card" onclick="window.location.href='business.html'">
+                <h2>Business Studies</h2>
+                <p>Coming Soon</p>
+                <a href="#" class="btn business">Explore PYQs</a>
+            </div>
         </div>
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2023 PYQ Hub. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
