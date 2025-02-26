@@ -179,11 +179,93 @@
                 grid-template-columns: 1fr;
             }
         }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 25px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .doubtnut-btn {
+            background-color: #FF6B00; /* Orange color */
+            color: white;
+        }
+
+        .chatgpt-btn {
+            background-color: #10B981; /* Green color */
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    /* Google Search Bar Styles */
+    .search-container {
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 0 20px;
+    }
+
+    .search-form {
+        display: flex;
+        gap: 10px;
+    }
+
+    .search-input {
+        flex: 1;
+        padding: 12px 20px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+        outline: none;
+        border-color: #0984e3;
+        box-shadow: 0 0 8px rgba(9, 132, 227, 0.2);
+    }
+
+    .search-button {
+        background: #0984e3;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .search-button:hover {
+        background: #0873c4;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 480px) {
+        .search-form {
+            flex-direction: column;
+        }
+        .search-button {
+            width: 100%;
+        }
+    }
     </style>
 </head>
 <body>
     <nav>
-        <a href="#" class="logo">PYQ<span>Hub</span></a>
+        <a href="#" class="logo">Common<span>Tube</span></a>
         <div class="nav-links">
             <a href="#">Home</a>
             <a href="#">Subjects</a>
@@ -193,15 +275,34 @@
 
     <div class="container">
         <div class="hero-section">
-            <h1>Master Your Exams with PYQ Hub</h1>
-            <p>Access curated previous year question papers, organized by subject and year. Enhance your preparation with our comprehensive academic resources.</p>
+            <h1>Master Your Exams with Common Tube</h1>
         </div>
+
+        <div class="search-container">
+            <form class="search-form" action="https://www.google.com/search" target="_blank" method="GET">
+                <input 
+                    type="text" 
+                    class="search-input" 
+                    name="q" 
+                    placeholder="Search Google..." 
+                    required
+                >
+                <button type="submit" class="search-button">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </form>
+        </div>
+
+        <center>
+            <a href="https://www.doubtnut.com" target="_blank" class="btn doubtnut-btn">Doubtnut</a>
+            <a href="https://chat.openai.com" target="_blank" class="btn chatgpt-btn">ChatGPT</a>
+        </center>
 
         <div class="grid-container">
             <div class="subject-card" onclick="window.location.href='accountancy.html'">
                 <h2>Accountancy</h2>
-                <p>2018, 2019, 2020, 2022, 2023 & 2024 PYQs</p>
-                <a href="#" class="btn accountancy">Explore PYQs</a>
+                <p>PYQs, summarys</p>
+                <a href="#" class="btn accountancy">Explore</a>
             </div>
 
             <div class="subject-card" onclick="window.location.href='economics.html'">
@@ -211,7 +312,7 @@
             </div>
 
             <div class="subject-card" onclick="window.location.href='business.html'">
-                <h2>Business Studies</h2>
+                <h2>English</h2>
                 <p>Coming Soon</p>
                 <a href="#" class="btn business">Explore PYQs</a>
             </div>
@@ -220,7 +321,7 @@
 
     <footer>
         <div class="footer-content">
-            <p>© 2025 PYQ Hub by Ayush.</p>
+            <p>© 2025 Common Tube Hub by Ayush.</p>
         </div>
     </footer>
 </body>
